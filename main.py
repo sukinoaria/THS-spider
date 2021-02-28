@@ -32,7 +32,7 @@ class Spider:
 
         self.REQUEST_HEADER = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36',
-            'Cookie': 'Hm_lvt_78c58f01938e4d85eaf619eae71b4ed1=1614327245; spversion=20130314; reviewJump=nojump; searchGuide=sg; historystock=300369%7C*%7C300078%7C*%7C430335; usersurvey=1; Hm_lpvt_78c58f01938e4d85eaf619eae71b4ed1=1614495825; v=A9Vpn-8fGS-fbD1TmQ2JaQUI5NqM0onkU4ZtOFd6kcybrv8MHyKZtOPWfQzk'
+            'Cookie': 'Hm_lvt_78c58f01938e4d85eaf619eae71b4ed1=1614327245; spversion=20130314; reviewJump=nojump; searchGuide=sg; historystock=300369%7C*%7C300078%7C*%7C430335; usersurvey=1; Hm_lpvt_78c58f01938e4d85eaf619eae71b4ed1=1614495825; v=A68T7bkZEx3mIBch3iKz2xsWPsi6VAN3nagHasE8S54lEMW-ySSTxq14l77S'
         }
         self.init_task()
 
@@ -52,8 +52,8 @@ class Spider:
         tgt_url = self.base_url.format(stock_code)
         web_source = requests.get(tgt_url, headers=self.REQUEST_HEADER)
         #save new cookie
-        new_cookie = web_source.request.headers['Cookie']
-        self.REQUEST_HEADER['Cookie'] = new_cookie
+        # new_cookie = web_source.request.headers['Cookie']
+        # self.REQUEST_HEADER['Cookie'] = new_cookie
 
         print("[{}/{}]start crawl stock:{}, STATUS CODE:[{}]".format(idx,len(self.stocks),
                                                                      stock_code,web_source.status_code))
